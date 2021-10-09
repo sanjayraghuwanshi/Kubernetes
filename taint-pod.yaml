@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  creationTimestamp: null
+  name: taint-node
+spec:
+  containers:
+  - image: nginx
+    name: taint-node
+    ports:
+    - containerPort: 80
+  tolerations:
+  - key: type
+    operator: Equal
+    value: gpu
+    effect: NoSchedule
