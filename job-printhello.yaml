@@ -1,0 +1,14 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: hello-simplilearn
+spec:
+  completions: 10
+  template:
+    spec:
+      containers:
+      - name: hello-simplilearn
+        image: alpine
+        command: ['echo','hello simplilearn']
+      restartPolicy: Never
+
