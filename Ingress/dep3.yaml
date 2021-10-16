@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: dep3
+  name: dep3
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: dep3
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: dep3
+    spec:
+      containers:
+      - env:
+        - name: TOMCAT_PASSWORD
+          value: simplilearn
+        image: bitnami/tomcat
+        name: tomcat
+        ports:
+        - containerPort: 8080
